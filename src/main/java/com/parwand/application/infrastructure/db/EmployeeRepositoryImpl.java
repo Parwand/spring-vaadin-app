@@ -2,9 +2,10 @@ package com.parwand.application.infrastructure.db;
 
 import com.parwand.application.applicationservice.repository.EmployeeRepository;
 import com.parwand.application.domain.model.Employee;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
-
+@Repository
 public class EmployeeRepositoryImpl implements EmployeeRepository {
 
     private final EmployeeDao employeeDao;

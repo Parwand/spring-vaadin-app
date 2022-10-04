@@ -8,18 +8,14 @@ import com.vaadin.flow.router.Route;
 
 @Route("/employee")
 public class EmployeeView extends VerticalLayout {
-    private final Grid<Employee> grid = new Grid<>(Employee.class, true);
-    private EmployeeService employeeService;
+    private final Grid<Employee> grid = new Grid<>(Employee.class, false);
+    private final EmployeeService employeeService;
 
     public EmployeeView(EmployeeService employeeService) {
         this.employeeService = employeeService;
-    }
-
-    public EmployeeView() {
         grid.addColumn(Employee::getFirstname).setHeader("First Name");
         grid.addColumn(Employee::getLastname).setHeader("Last Name");
         grid.addColumn(Employee::getEmail).setHeader("Email");
-
         grid.setItems(employeeService.getAllEmployees());
         add(grid);
     }
