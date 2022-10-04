@@ -21,5 +21,6 @@ public class EmployeeView extends VerticalLayout {
         grid.addColumn(Employee::getEmail).setHeader("First Name");
 
         grid.setItems(employeeService.getAllEmployees());
+        add(grid);
     }
 }
