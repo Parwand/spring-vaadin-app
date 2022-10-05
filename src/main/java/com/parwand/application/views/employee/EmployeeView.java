@@ -22,14 +22,21 @@ public class EmployeeView extends VerticalLayout {
     private final TextField filterText = new TextField();
 
     public EmployeeView(EmployeeService employeeService) {
+        addClassName("list-view");
         this.employeeService = employeeService;
-        grid.addColumn(Employee::getFirstname).setHeader("First Name");
-        grid.addColumn(Employee::getLastname).setHeader("Last Name");
-        grid.addColumn(Employee::getEmail).setHeader("Email");
+        configureGrid();
         updateList();
         configureFilter();
         add(filterText, grid);
         addNewEmployee();
+    }
+
+    private void configureGrid() {
+        grid.addClassName("contact-grid");
+        grid.addColumn(Employee::getFirstname).setHeader("First Name");
+        grid.addColumn(Employee::getLastname).setHeader("Last Name");
+        grid.addColumn(Employee::getEmail).setHeader("Email");
+        grid.getColumns().forEach( col -> col.setAutoWidth(true));
     }
 
     private void configureFilter() {
