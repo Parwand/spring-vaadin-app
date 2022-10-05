@@ -10,7 +10,7 @@ import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 
 @PageTitle("Main")
-@Route(value = "")
+@Route(value = "", layout = MainLayout.class)
 public class MainView extends VerticalLayout {
     TextField name;
     Button sayHello;
