@@ -23,7 +23,7 @@ public class EmployeeView extends VerticalLayout {
         grid.addColumn(Employee::getFirstname).setHeader("First Name");
         grid.addColumn(Employee::getLastname).setHeader("Last Name");
         grid.addColumn(Employee::getEmail).setHeader("Email");
-        grid.setItems(employeeService.getAllEmployees());
+        updateList();
         add(grid);
         addNewEmployee();
     }
@@ -43,5 +43,9 @@ public class EmployeeView extends VerticalLayout {
         VerticalLayout vl = new VerticalLayout(new HorizontalLayout(firstname, lastname, email), saveButton);
         formLayout.add(vl);
         add(formLayout);
+    }
+
+    private void updateList() {
+        grid.setItems(employeeService.getAllEmployees());
     }
 }
