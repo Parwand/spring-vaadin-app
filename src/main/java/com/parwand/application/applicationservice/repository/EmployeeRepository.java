@@ -9,4 +9,7 @@ public interface EmployeeRepository {
 
     void save(Employee employee);
     List<Employee> findAll();
+
+    List<Employee> findEmployeeByName(String filterText);
+
 }

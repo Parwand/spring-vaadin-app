@@ -11,6 +11,7 @@ import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
+import com.vaadin.flow.data.value.ValueChangeMode;
 import com.vaadin.flow.router.Route;
 
 @Route(value = "/employee", layout = MainLayout.class)
@@ -18,14 +19,26 @@ public class EmployeeView extends VerticalLayout {
     private final Grid<Employee> grid = new Grid<>(Employee.class, false);
     private final EmployeeService employeeService;
 
+    private final TextField filterText = new TextField();
+
     public EmployeeView(EmployeeService employeeService) {
         this.employeeService = employeeService;
         grid.addColumn(Employee::getFirstname).setHeader("First Name");
         grid.addColumn(Employee::getLastname).setHeader("Last Name");
         grid.addColumn(Employee::getEmail).setHeader("Email");
         updateList();
-        add(grid);
+        configureFilter();
+        add(filterText, grid);
         addNewEmployee();
+    }
+
+    private void configureFilter() {
+        filterText.setPlaceholder("Filter by Name..");
+        filterText.setClearButtonVisible(true);
+        filterText.setValueChangeMode(ValueChangeMode.LAZY);
+        filterText.addValueChangeListener(e -> {
+           updateList();
+        });
     }
 
     public void addNewEmployee() {
@@ -46,6 +59,6 @@ public class EmployeeView extends VerticalLayout {
     }
 
     private void updateList() {
-        grid.setItems(employeeService.getAllEmployees());
+        grid.setItems(employeeService.getAllEmployees(filterText.getValue()));
     }
 }

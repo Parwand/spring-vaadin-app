@@ -23,4 +23,9 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
     public List<Employee> findAll() {
         return employeeDao.findAll();
     }
+
+    @Override
+    public List<Employee> findEmployeeByName(String filterText) {
+        return employeeDao.findByName(filterText);
+    }
 }
