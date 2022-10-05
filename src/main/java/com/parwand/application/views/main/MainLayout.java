@@ -1,5 +1,6 @@
 package com.parwand.application.views.main;
 
+import com.parwand.application.views.employee.EmployeeView;
 import com.parwand.application.views.todo.ToDoView;
 import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.applayout.DrawerToggle;
@@ -23,5 +24,9 @@ public class MainLayout extends AppLayout {
     private void createDrawer() {
         RouterLink todo = new RouterLink("TODO", ToDoView.class);
         todo.setHighlightCondition(HighlightConditions.sameLocation());
+
+        RouterLink employeeView = new RouterLink("Employee", EmployeeView.class);
+        employeeView.setHighlightCondition(HighlightConditions.sameLocation());
+        addToDrawer(todo, employeeView);
     }
 }
