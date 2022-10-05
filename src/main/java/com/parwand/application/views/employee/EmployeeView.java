@@ -5,6 +5,7 @@ import com.parwand.application.domain.model.Employee;
 import com.parwand.application.views.main.MainLayout;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.grid.Grid;
+import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
@@ -33,6 +34,7 @@ public class EmployeeView extends VerticalLayout {
         saveButton.addClickListener(e -> {
             Employee employee = new Employee(firstname.getValue(), lastname.getValue(), email.getValue());
             employeeService.saveEmployee(employee);
+            Notification.show("Employee saved");
         });
         VerticalLayout vl = new VerticalLayout(new HorizontalLayout(firstname, lastname, email), saveButton);
         add(vl);

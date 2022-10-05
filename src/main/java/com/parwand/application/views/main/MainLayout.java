@@ -26,10 +26,11 @@ public class MainLayout extends AppLayout {
         RouterLink todo = new RouterLink("TODO", ToDoView.class);
         todo.setHighlightCondition(HighlightConditions.sameLocation());
 
-        RouterLink employeeView = new RouterLink("Employee", EmployeeView.class);
-        employeeView.setHighlightCondition(HighlightConditions.sameLocation());
 
-        VerticalLayout linksList = new VerticalLayout(todo, employeeView);
-        addToDrawer(linksList);
+        RouterLink employee = new RouterLink("Employee", EmployeeView.class);
+        employee.setHighlightCondition(HighlightConditions.sameLocation());
+
+        VerticalLayout routerLinkList = new VerticalLayout(todo, employee);
+        addToDrawer(routerLinkList);
     }
 }
