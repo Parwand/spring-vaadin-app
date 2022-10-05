@@ -5,6 +5,7 @@ import com.parwand.application.views.todo.ToDoView;
 import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.applayout.DrawerToggle;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.HighlightConditions;
 import com.vaadin.flow.router.RouterLink;
 
@@ -27,6 +28,8 @@ public class MainLayout extends AppLayout {
 
         RouterLink employeeView = new RouterLink("Employee", EmployeeView.class);
         employeeView.setHighlightCondition(HighlightConditions.sameLocation());
-        addToDrawer(todo, employeeView);
+
+        VerticalLayout linksList = new VerticalLayout(todo, employeeView);
+        addToDrawer(linksList);
     }
 }
