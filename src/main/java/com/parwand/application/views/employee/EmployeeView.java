@@ -3,8 +3,11 @@ package com.parwand.application.views.employee;
 import com.parwand.application.applicationservice.service.EmployeeService;
 import com.parwand.application.domain.model.Employee;
 import com.parwand.application.views.main.MainLayout;
+import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.grid.Grid;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.Route;
 
 @Route(value = "/employee", layout = MainLayout.class)
@@ -19,5 +22,19 @@ public class EmployeeView extends VerticalLayout {
         grid.addColumn(Employee::getEmail).setHeader("Email");
         grid.setItems(employeeService.getAllEmployees());
         add(grid);
+        addNewEmployee();
+    }
+
+    public void addNewEmployee() {
+        TextField firstname = new TextField("Firstname");
+        TextField lastname  = new TextField("Lastname");
+        TextField email = new TextField("Email");
+        Button saveButton = new Button("Save");
+        saveButton.addClickListener(e -> {
+            Employee employee = new Employee(firstname.getValue(), lastname.getValue(), email.getValue());
+            employeeService.saveEmployee(employee);
+        });
+        VerticalLayout vl = new VerticalLayout(new HorizontalLayout(firstname, lastname, email), saveButton);
+        add(vl);
     }
 }
