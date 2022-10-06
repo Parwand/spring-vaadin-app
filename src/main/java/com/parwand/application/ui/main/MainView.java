@@ -1,4 +1,4 @@
-package com.parwand.application.views.main;
+package com.parwand.application.ui.main;
 
 import com.vaadin.flow.component.Key;
 import com.vaadin.flow.component.button.Button;

@@ -1,6 +1,6 @@
-package com.parwand.application.views.todo;
+package com.parwand.application.ui.todo;
 
-import com.parwand.application.views.main.MainLayout;
+import com.parwand.application.ui.main.MainLayout;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.checkbox.Checkbox;
 import com.vaadin.flow.component.html.H1;

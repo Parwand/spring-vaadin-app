@@ -1,7 +1,7 @@
-package com.parwand.application.views.main;
+package com.parwand.application.ui.main;
 
-import com.parwand.application.views.employee.EmployeeView;
-import com.parwand.application.views.todo.ToDoView;
+import com.parwand.application.ui.employee.EmployeeView;
+import com.parwand.application.ui.todo.ToDoView;
 import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.applayout.DrawerToggle;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;

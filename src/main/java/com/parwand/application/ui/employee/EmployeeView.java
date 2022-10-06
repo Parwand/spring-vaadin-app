@@ -1,8 +1,8 @@
-package com.parwand.application.views.employee;
+package com.parwand.application.ui.employee;
 
 import com.parwand.application.applicationservice.service.EmployeeService;
 import com.parwand.application.domain.model.Employee;
-import com.parwand.application.views.main.MainLayout;
+import com.parwand.application.ui.main.MainLayout;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.formlayout.FormLayout;
